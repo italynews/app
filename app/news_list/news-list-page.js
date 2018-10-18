@@ -4,7 +4,7 @@ a code-behind file. The code-behind is a great place to place your view
 logic, and to set up your page’s data binding.
 */
 
-const HomeViewModel = require("./home-view-model");
+const HomeViewModel = require("./news-list-model");
 const topmost = require("tns-core-modules/ui/frame").topmost;
 
 
@@ -15,7 +15,7 @@ function onNavigatingTo(args) {
 
 function onSelectCategories(args) {
     topmost().navigate({
-        moduleName: "news_list/news-list-page",
+        moduleName: "news_detail/news-detail-page",
         context: {saluto : 'hola'},
         animated: true,
         transition: {

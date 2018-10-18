@@ -7,6 +7,6 @@
     </ActionBar>
 
     <GridLayout>
-        <Button text="Go to news" tap="onSelectCategories" class="btn btn-primary btn-active" />
+        <Button text="Go back home" tap="onSelectCategories" class="btn btn-primary btn-active" />
     </GridLayout>
 </Page>
