@@ -16,7 +16,7 @@ function onNavigatingTo(args) {
 function onSelectCategories(args) {
     topmost().navigate({
         moduleName: "news_list/news-list-page",
-        context: {saluto : 'hola'},
+        context: {news : []},
         animated: true,
         transition: {
             name: "slide",

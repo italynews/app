@@ -2,11 +2,21 @@
     navigatingTo="onNavigatingTo"
     xmlns="http://schemas.nativescript.org/tns.xsd">
 
+
     <ActionBar class="action-bar">
         <Label class="action-bar-title" text="Italy News"></Label>
     </ActionBar>
 
-    <GridLayout>
-        <Button text="Go back home" tap="onSelectCategories" class="btn btn-primary btn-active" />
-    </GridLayout>
+    <ListView items="{{ news }}"
+        separatorColor="orangered" rowHeight="50"
+        itemTap="onItemTap"
+        loaded="{{ onListViewLoaded }}"
+        class="list-group" id="listView" row="2">
+        <ListView.itemTemplate>
+            <!-- The item template can only have a single root view container (e.g. GriLayout, StackLayout, etc.) -->
+            <StackLayout class="list-group-item">
+                <Label text="{{ title || 'Downloading...' }}" textWrap="true" class="title" />
+            </StackLayout>
+        </ListView.itemTemplate>
+    </ListView>
 </Page>
