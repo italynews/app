@@ -8,8 +8,6 @@ const HomeViewModel = require("./news-list-model");
 const topmost = require("tns-core-modules/ui/frame").topmost;
 
 const listViewModule = require("tns-core-modules/ui/list-view");
-const fromObject = require("tns-core-modules/data/observable").fromObject;
-
 
 const AnsaService = require("../shared/ansaservice");
 
@@ -32,6 +30,18 @@ function onListViewLoaded(args) {
 exports.onListViewLoaded = onListViewLoaded;
 
 function onItemTap(args) {
-    const index = args.index;
-    console.log(`Second ListView item tap ${index}`);
+    const page = args.object;
+    console.log(page);
+    topmost().navigate({
+        moduleName: "news_detail/news-detail-page",
+        context: {link : page.bindingContext.news[args.index].link},
+        animated: true,
+        transition: {
+            name: "slide",
+            duration: 200,
+            curve: "ease"
+        }
+    });
 }
+
+exports.onItemTap = onItemTap;

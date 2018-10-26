@@ -3,10 +3,15 @@
     xmlns="http://schemas.nativescript.org/tns.xsd">
 
     <ActionBar class="action-bar">
-        <Label class="action-bar-title" text="Italy News"></Label>
+        <Label class="action-bar-title" text="{{news.title}}"></Label>
     </ActionBar>
 
-    <GridLayout>
+    <ScrollView orientation="vertical">
+        <StackLayout>
+            <Label text="{{news.summary}}" textWrap="true" class="news--summary" />
+            <Label text="{{news.text}}" textWrap="true" class="news--text" />
+            <Image src="http://www.ansa.it//webimages/img_457x/2018/10/26/2c186c3c1abfeabdb70ac4b8ed66e08d.jpg"></Image>
 
-    </GridLayout>
+        </StackLayout>
+    </ScrollView>
 </Page>
