@@ -11,9 +11,14 @@ const listViewModule = require("tns-core-modules/ui/list-view");
 
 const AnsaService = require("../shared/ansaservice");
 
+var view = require("ui/core/view");
+var drawer;
+
+
 function onNavigatingTo(args) {
     const page = args.object;
     page.bindingContext = new HomeViewModel();
+    drawer = view.getViewById(page, "sideDrawer");
     AnsaService.listNews().then((r) => {
         console.log(r);
         page.bindingContext.news = r;
@@ -45,3 +50,7 @@ function onItemTap(args) {
 }
 
 exports.onItemTap = onItemTap;
+
+exports.toggleDrawer = function() {
+    drawer.toggleDrawerState();
+};

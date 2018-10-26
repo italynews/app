@@ -16,6 +16,7 @@ function onNavigatingTo(args) {
 function onSelectCategories(args) {
     topmost().navigate({
         moduleName: "news_list/news-list-page",
+        clearHistory: true,
         context: {news : []},
         animated: true,
         transition: {
