@@ -26,10 +26,10 @@
         <!-- The main content -->
         <sd:RadSideDrawer.mainContent>
             <ListView items="{{ news }}"
-                separatorColor="orangered" rowHeight="50"
+                separatorColor="orangered"
                 itemTap="onItemTap"
                 loaded="{{ onListViewLoaded }}"
-                class="list-group" id="listView" row="2">
+                class="list-group" id="listView" row="5">
                 <ListView.itemTemplate>
                     <!-- The item template can only have a single root view container (e.g. GriLayout, StackLayout, etc.) -->
                     <StackLayout class="list-group-item">
