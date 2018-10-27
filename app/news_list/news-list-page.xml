@@ -1,27 +1,24 @@
 <Page class="page"
     navigatingTo="onNavigatingTo"
-    xmlns:sd="nativescript-ui-sidedrawer">
+    xmlns:sd="nativescript-ui-sidedrawer"
+    xmlns:Lottie="nativescript-lottie">
 
 
     <ActionBar class="action-bar">
-        <ActionItem tap="toggleDrawer" ios.systemIcon="4" android.systemIcon="ic_menu_btn_add" ios.position="left" />
-        <Label class="action-bar-title" text="Italy News"></Label>
+        <ActionItem id="sideButtonDrawer" tap="onTapDrawer" ios.position="left" android.position="actionBar">
+            <Lottie:LottieView tap="toggleDrawer" speed="1000" width="40" height="40"  src="menuButton1.json"  loaded="drawerButtonLoaded">
+            </Lottie:LottieView>
+        </ActionItem>
+        <Label text="Italy News" class="action-label"></Label>
     </ActionBar>
 
-    <sd:RadSideDrawer id="sideDrawer">
+    <sd:RadSideDrawer id="sideDrawer" drawerClosed="onDrawerClosed" drawerOpened="onDrawerOpened">
 
         <!-- side drawer content -->
         <sd:RadSideDrawer.drawerContent>
             <StackLayout class="sidedrawer-left">
-                <StackLayout class="sidedrawer-header">
-                    <Label text="Hello RadSideDrawer!" class="sidedrawer-header-brand" />
-                </StackLayout>
                 <StackLayout class="sidedrawer-content">
-                    <Label text="Home" class="sidedrawer-list-item-text" />
-                    <Label text="Basics" class="sidedrawer-list-item-text" />
-                    <Label text="Options" class="sidedrawer-list-item-text" />
-                    <Label text="Help" class="sidedrawer-list-item-text" />
-                    <Label text="Advanced" class="sidedrawer-list-item-text" />
+                    <Label text="Side menu" class="action-label"></Label>
                 </StackLayout>
             </StackLayout>
         </sd:RadSideDrawer.drawerContent>
