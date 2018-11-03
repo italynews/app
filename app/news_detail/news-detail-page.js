@@ -5,15 +5,19 @@ logic, and to set up your page’s data binding.
 */
 
 const HomeViewModel = require("./news-detail-model");
+const AnsaService = require("../shared/ansaservice");
+
 
 function onNavigatingTo(args) {
     const page = args.object;
+    var link = page.navigationContext.link;
     page.bindingContext = new HomeViewModel();
+    AnsaService.getNews(link).then((r) => {
+        console.log(r);
+        page.bindingContext.news = r;
+    }, (e) => {
+        console.log(e);
+    });
 }
-
-function onSelectCategories(args) {
-    alert("Button Tapped!");
-}
-exports.onSelectCategories = onSelectCategories;
 
 exports.onNavigatingTo = onNavigatingTo;
